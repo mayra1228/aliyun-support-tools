@@ -10,6 +10,7 @@
 此脚本最多支持1000个日志文件的拉取，及开始时间与结束时间之间不要超过40天，超过40天会有日志遗漏。
 ### 脚本的执行逻辑
 1.通过Aliyun的API接口DescribeCdnDomainLogs获取指定域名的原始访问日志的下载地址，返回格式如下：
+```
 {
 	"DomainLogModel":{
 		"PageNumber":1,
@@ -44,6 +45,7 @@
 	},
 	"RequestId":"1805F349-0A2B-41D9-B4AD-33632AFC27F1"
 }
+```
 2.可以通过直接访问logpath获取压缩文件路径，因此第二部分是将所有logpath传入cdn_pathfile_{timestamp}.log文件中
 3.将所有文件下载到指定目录下
 4.将所有文件解压并汇总到cdn_merge_{timestamp}.log中
